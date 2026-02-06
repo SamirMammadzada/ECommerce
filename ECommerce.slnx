@@ -7,6 +7,7 @@
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Product/">
+    <Project Path="src/Modules/Product/Product.Application/Product.Application.csproj" />
     <Project Path="src/Modules/Product/Product.Domain/Product.Domain.csproj" />
   </Folder>
 </Solution>
