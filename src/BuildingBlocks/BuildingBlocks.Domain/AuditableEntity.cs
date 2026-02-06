@@ -1,0 +1,23 @@
+﻿namespace BuildingBlocks.Domain;
+
+public abstract class AuditableEntity : Entity
+{
+    public bool IsActive { get; private set; }
+    public DateTimeOffset CreatedAt { get; private set; }
+    public Guid CreatedBy { get; private set; }
+    public Guid? DeletedBy { get; private set; }
+    public DateTimeOffset? DeletedAt { get; private set; }
+    public bool IsDeleted { get; private set; }
+    public Guid? UpdatedBy { get; private set; }
+    public DateTimeOffset? UpdatedAt { get; private set; }
+    protected AuditableEntity() { }
+    public virtual void Delete()
+    {
+        IsDeleted = true;
+    }
+    public virtual void Recover()
+    {
+        IsDeleted = false;
+    }
+
+}
