@@ -19,7 +19,7 @@ public class Product : AuditableEntity
         Price = price;
         Stock = stock;
     }
-    public static Product CreateProduct(
+    public static Product Create(
         string name,
         decimal price,
         int stock
