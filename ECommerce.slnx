@@ -6,8 +6,8 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks.Domain/BuildingBlocks.Domain.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
-  <Folder Name="/src/Modules/Product/">
-    <Project Path="src/Modules/Product/Product.Application/Product.Application.csproj" />
-    <Project Path="src/Modules/Product/Product.Domain/Product.Domain.csproj" />
+  <Folder Name="/src/Modules/Catalog/">
+    <Project Path="src/Modules/Catalog/Catalog.Application/Catalog.Application.csproj" />
+    <Project Path="src/Modules/Catalog/Catalog.Domain/Catalog.Domain.csproj" />
   </Folder>
 </Solution>

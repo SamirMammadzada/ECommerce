@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.Domain;
 
-namespace Product.Domain;
+namespace Catalog.Domain.Entities;
 
 public class Product : AuditableEntity
 {
@@ -8,7 +8,7 @@ public class Product : AuditableEntity
 
     private readonly List<string> _images = new();
     public IReadOnlyCollection<string> Images => _images.AsReadOnly();
-    public decimal Price { get; private set; }
+    public decimal Price { get; private set; } // todo: create value object for currency
     public int Stock { get; private set; }
 
     private Product() { }
