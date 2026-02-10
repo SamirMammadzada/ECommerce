@@ -15,7 +15,8 @@ public class CreateProductCommand : IRequest<Result>
 
 
 internal sealed class CreateProductCommandHandler(
-    IProductRepository productRepository
+    IProductRepository productRepository,
+    IUnitOfWork unitOfWork
     ) : IRequestHandler<CreateProductCommand, Result>
 {
     public async Task<Result> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -32,6 +33,7 @@ internal sealed class CreateProductCommandHandler(
         }
 
         await productRepository.AddAsync(product, cancellationToken);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return Result.Success();
     }
