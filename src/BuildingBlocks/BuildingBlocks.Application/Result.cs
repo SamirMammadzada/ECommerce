@@ -1,4 +1,4 @@
-﻿namespace BuildingBlocks.Domain;
+﻿namespace BuildingBlocks.Application;
 
 public class Result
 {

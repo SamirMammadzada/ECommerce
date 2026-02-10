@@ -2,6 +2,7 @@
 using BuildingBlocks.Domain;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
+using BuildingBlocks.Application;
 
 namespace Catalog.Application;
 
