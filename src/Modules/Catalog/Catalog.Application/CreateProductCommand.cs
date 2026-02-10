@@ -5,12 +5,13 @@ using Catalog.Domain.Repositories;
 
 namespace Catalog.Application;
 
-public sealed record CreateProductCommand(
-    string name,
-    List<string>? images,
-    decimal price,
-    int stock
-    ) : IRequest<Result>;
+public class CreateProductCommand : IRequest<Result>
+{
+    public string name { get; set; } = string.Empty;
+    public List<string> images { get; set; } = new();
+    public decimal price { get; set; }
+    public int stock { get; set; }
+}
 
 
 internal sealed class CreateProductCommandHandler(
@@ -31,7 +32,6 @@ internal sealed class CreateProductCommandHandler(
         }
 
         await productRepository.AddAsync(product, cancellationToken);
-        await productRepository.SaveChangesAsync(cancellationToken);
 
         return Result.Success();
     }
