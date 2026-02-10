@@ -1,14 +1,14 @@
 ﻿using BuildingBlocks.Domain;
-using Catalog.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
+using BuildingBlocks.Infrastructure.Persistence.Context;
 
 
-namespace Catalog.Infrastructure.Persistence.Repositories;
+namespace BuildingBlocks.Infrastructure.Persistence.Repository;
 
 public abstract class Repository<T> : IRepository<T> where T : AuditableEntity
 {
     private readonly DbSet<T> _dbSet;
-    public Repository (ApplicationDbContext context) 
+    public Repository(ApplicationDbContext context)
     {
         _dbSet = context.Set<T>();
     }
@@ -19,7 +19,7 @@ public abstract class Repository<T> : IRepository<T> where T : AuditableEntity
     }
 
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
-    { 
+    {
         return await _dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
@@ -30,3 +30,4 @@ public abstract class Repository<T> : IRepository<T> where T : AuditableEntity
         return Task.CompletedTask;
     }
 }
+

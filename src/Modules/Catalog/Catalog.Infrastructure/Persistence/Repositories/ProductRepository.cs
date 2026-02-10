@@ -1,7 +1,7 @@
-﻿using Catalog.Domain.Entities;
+﻿using BuildingBlocks.Infrastructure.Persistence.Context;
+using BuildingBlocks.Infrastructure.Persistence.Repository;
+using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
-using Catalog.Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace Catalog.Infrastructure.Persistence.Repositories;
