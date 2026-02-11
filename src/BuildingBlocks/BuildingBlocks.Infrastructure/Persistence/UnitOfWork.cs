@@ -1,14 +1,14 @@
 ﻿using BuildingBlocks.Domain;
-using BuildingBlocks.Infrastructure.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace BuildingBlocks.Infrastructure.Persistence;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly ApplicationDbContext _context;
+    private readonly DbContext _context;
 
-    public UnitOfWork (ApplicationDbContext context)
+    public UnitOfWork (DbContext context)
     {
         _context = context;
     }

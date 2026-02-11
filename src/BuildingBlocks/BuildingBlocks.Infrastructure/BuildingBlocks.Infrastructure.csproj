@@ -15,4 +15,8 @@
     <ProjectReference Include="..\BuildingBlocks.Domain\BuildingBlocks.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Context\" />
+  </ItemGroup>
+
 </Project>

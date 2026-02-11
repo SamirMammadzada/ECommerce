@@ -1,14 +1,14 @@
-﻿using BuildingBlocks.Infrastructure.Persistence.Context;
-using BuildingBlocks.Infrastructure.Persistence.Repository;
+﻿using BuildingBlocks.Infrastructure.Persistence.Repository;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
+using Catalog.Infrastructure.Persistence.Context;
 
 
 namespace Catalog.Infrastructure.Persistence.Repositories;
 
 public class ProductRepository : Repository<Product>, IProductRepository
 {
-    public ProductRepository(ApplicationDbContext _context) : base(_context)
+    public ProductRepository(ProductDbContext _context) : base(_context)
     {
 
     }
