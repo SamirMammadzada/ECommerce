@@ -6,12 +6,22 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>E_Commerce</RootNamespace>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<UserSecretsId>ec8e0dca-6a3a-45a3-a4ea-d02a8f6e2bc7</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="MediatR" Version="14.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Scalar.AspNetCore" Version="2.12.17" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Modules\Catalog\Catalog.Application\Catalog.Application.csproj" />
+	  <ProjectReference Include="..\Modules\Catalog\Catalog.Infrastructure\Catalog.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
