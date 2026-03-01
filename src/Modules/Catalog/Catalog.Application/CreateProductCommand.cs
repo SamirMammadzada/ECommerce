@@ -1,5 +1,4 @@
-﻿using MediatR;
-using BuildingBlocks.Domain;
+﻿using BuildingBlocks.Domain;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
 using BuildingBlocks.Application;
@@ -7,7 +6,7 @@ using FluentValidation;
 
 namespace Catalog.Application;
 
-public class CreateProductCommand : IRequest<Result>
+public class CreateProductCommand : ICommand
 {
     public string Name { get; set; } = string.Empty;
     public List<string> Images { get; set; } = new();
@@ -47,7 +46,7 @@ internal sealed class CreateProductCommandValidator : AbstractValidator<CreatePr
 internal sealed class CreateProductCommandHandler(
     IProductRepository productRepository,
     IUnitOfWork unitOfWork
-    ) : IRequestHandler<CreateProductCommand, Result>
+    ) : ICommandHandler<CreateProductCommand>
 {
     public async Task<Result> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {

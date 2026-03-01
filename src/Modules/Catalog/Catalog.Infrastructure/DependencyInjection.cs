@@ -1,6 +1,4 @@
-﻿
-using BuildingBlocks.Domain;
-using BuildingBlocks.Infrastructure.Persistence;
+﻿using BuildingBlocks.Domain;
 using Catalog.Domain.Repositories;
 using Catalog.Infrastructure.Persistence.Context;
 using Catalog.Infrastructure.Persistence.Repositories;
