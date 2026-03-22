@@ -22,7 +22,7 @@ internal sealed class GetProductByIdQueryHandler(
     {
         Product? product = await productRepository.GetByIdAsync(request.id, cancellationToken);
 
-        if(product is null)
+        if (product is null || product.IsDeleted)
         {
             return Result<ProductDto>.Failure("Product doesn't exist");
         }
