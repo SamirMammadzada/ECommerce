@@ -36,6 +36,15 @@ app.MapPost("product",
     .DisableAntiforgery()
     ;
 
+app.MapGet("product",
+    async ([AsParameters] GetProductByIdQuery request, ISender sender, CancellationToken cancellationToken) =>
+    {
+        var result = await sender.Send(request, cancellationToken);
+        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
+    })
+    .Produces<Result<ProductDto>>()
+    .DisableAntiforgery()
+    ;
 app.Run();
 
 
