@@ -6,7 +6,7 @@ namespace BuildingBlocks.Infrastructure.Persistence.Repository;
 
 public abstract class Repository<T> : IRepository<T> where T : AuditableEntity
 {
-    private readonly DbSet<T> _dbSet;
+    protected readonly DbSet<T> _dbSet;
     public Repository(DbContext context)
     {
         _dbSet = context.Set<T>();
@@ -17,7 +17,7 @@ public abstract class Repository<T> : IRepository<T> where T : AuditableEntity
         await _dbSet.AddAsync(entity, cancellationToken);
     }
 
-    public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+    public virtual async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         return await _dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
