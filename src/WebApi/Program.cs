@@ -45,6 +45,16 @@ app.MapGet("product",
     .Produces<Result<ProductDto>>()
     .DisableAntiforgery()
     ;
+
+app.MapDelete("product",
+    async ([AsParameters] DeleteProductCommand request, ISender sender, CancellationToken cancellationToken) =>
+    {
+        var result = await sender.Send(request, cancellationToken);
+        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
+    })
+    .Produces<Result>()
+    .DisableAntiforgery()
+    ;
 app.Run();
 
 
