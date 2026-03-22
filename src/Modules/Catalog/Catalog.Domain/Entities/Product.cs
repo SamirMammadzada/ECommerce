@@ -62,4 +62,30 @@ public class Product : AuditableEntity
 
         _images.Add(image);
     }
+
+    public void Update(string? name, decimal? price, int? stock, List<string>? images)
+    {
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+             Name = name;
+        }
+
+        if (price.HasValue)
+        {
+            if (price.Value < 0) throw new ArgumentException("price can't be negative.");
+            Price = price.Value;
+        }
+
+        if (stock.HasValue)
+        {
+            if (stock.Value < 0) throw new ArgumentException("stock can't be negative.");
+            Stock = stock.Value;
+        }
+
+        if (images != null)
+        {
+            _images.Clear();
+            _images.AddRange(images);
+        }
+    }
 }

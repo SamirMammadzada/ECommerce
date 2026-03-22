@@ -17,7 +17,7 @@ internal sealed class DeleteProductCommandHandler(
 
         Product? product = await productRepository.GetByIdAsync(request.Id, cancellationToken);
 
-        if(product is null)
+        if(product is null || product.IsDeleted)
         {
             return Result.Failure("Product does not exists.");
         }
