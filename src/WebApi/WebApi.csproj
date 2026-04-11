@@ -24,6 +24,7 @@
 	  <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.Application\BuildingBlocks.Application.csproj" />
 	  <ProjectReference Include="..\Modules\Catalog\Catalog.Application\Catalog.Application.csproj" />
 	  <ProjectReference Include="..\Modules\Catalog\Catalog.Infrastructure\Catalog.Infrastructure.csproj" />
+	  <ProjectReference Include="..\Modules\Catalog\Catalog.Presentation\Catalog.Presentation.csproj" />
 	</ItemGroup>
 
 </Project>

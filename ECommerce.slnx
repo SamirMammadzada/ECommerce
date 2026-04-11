@@ -12,5 +12,6 @@
     <Project Path="src/Modules/Catalog/Catalog.Application/Catalog.Application.csproj" />
     <Project Path="src/Modules/Catalog/Catalog.Domain/Catalog.Domain.csproj" />
     <Project Path="src/Modules/Catalog/Catalog.Infrastructure/Catalog.Infrastructure.csproj" />
+    <Project Path="src/Modules/Catalog/Catalog.Presentation/Catalog.Presentation.csproj" />
   </Folder>
 </Solution>

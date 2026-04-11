@@ -2,6 +2,7 @@ using BuildingBlocks.Application;
 using BuildingBlocks.Application.Abstractions;
 using Catalog.Application;
 using Catalog.Infrastructure;
+using Catalog.Presentation.Endpoints;
 using E_Commerce.Exceptions;
 using FluentValidation;
 using MediatR;
@@ -39,46 +40,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () => Results.Redirect("/scalar"));
 
-
-app.MapPost("product",
-    async (CreateProductCommand request, ISender sender, CancellationToken cancellationToken) =>
-    {
-        var result = await sender.Send(request, cancellationToken);
-        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
-    })
-    .Produces<Result>()
-    .DisableAntiforgery()
-    ;
-
-app.MapGet("product",
-    async ([AsParameters] GetProductByIdQuery request, ISender sender, CancellationToken cancellationToken) =>
-    {
-        var result = await sender.Send(request, cancellationToken);
-        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
-    })
-    .Produces<Result<ProductDto>>()
-    .DisableAntiforgery()
-    ;
-
-app.MapDelete("product",
-    async ([AsParameters] DeleteProductCommand request, ISender sender, CancellationToken cancellationToken) =>
-    {
-        var result = await sender.Send(request, cancellationToken);
-        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
-    })
-    .Produces<Result>()
-    .DisableAntiforgery()
-    ;
-
-app.MapPut("product",
-    async (UpdateProductCommand request, ISender sender, CancellationToken cancellationToken) =>
-    {
-        var result = await sender.Send(request, cancellationToken);
-        return result.IsSuccessful ? Results.Ok(result) : Results.BadRequest(result);
-    })
-    .Produces<Result>()
-    .DisableAntiforgery()
-    ;
+app.MapProductEndpoints();
 
 app.Run();
 
