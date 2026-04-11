@@ -5,7 +5,7 @@ using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
 using FluentValidation;
 
-namespace Catalog.Application;
+namespace Catalog.Application.Commands;
 
 public record UpdateProductCommand : ICommand
 {

@@ -3,7 +3,7 @@ using BuildingBlocks.Domain;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
 
-namespace Catalog.Application;
+namespace Catalog.Application.Commands;
 
 public record DeleteProductCommand(Guid Id) : ICommand;
 

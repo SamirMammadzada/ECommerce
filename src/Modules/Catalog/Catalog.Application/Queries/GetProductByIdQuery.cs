@@ -3,7 +3,7 @@ using Catalog.Domain.Entities;
 using Catalog.Domain.Repositories;
 
 
-namespace Catalog.Application;
+namespace Catalog.Application.Queries;
 
 public record GetProductByIdQuery(Guid id) : IQuery<ProductDto>;
 

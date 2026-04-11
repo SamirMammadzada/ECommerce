@@ -4,7 +4,7 @@ using Catalog.Domain.Repositories;
 using BuildingBlocks.Application;
 using FluentValidation;
 
-namespace Catalog.Application;
+namespace Catalog.Application.Commands;
 
 public class CreateProductCommand : ICommand
 {
